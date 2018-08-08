@@ -430,7 +430,18 @@ describe("the JavaScript language", function() {
     });
 
     it("may create objects also with the module pattern", function() {
-      function createObject(initialScore) {}
+      function createObject(initialScore, color) {
+        return {
+          score: initialScore,
+          incrementScoreIn: function(n){
+            this.score += n;
+          },
+          color: color,
+          points: function() {
+            return this.score;
+          }
+        }
+      }
      
       
       var obj = createObject(5, 'red');
